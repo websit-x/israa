@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>israa_es_hermosa - Hello Kitty Profile</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Quicksand & Pacifico -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kittyPink: '#ffb7c5',
+                        kittyRed: '#ff3366',
+                        kittySoft: '#fff0f3',
+                        kittyDark: '#4a2e35',
+                        kittyPurple: '#e8c5ff',
+                    },
+                    fontFamily: {
+                        quicksand: ['Quicksand', 'sans-serif'],
+                        pacifico: ['Pacifico', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffe6ee 0%, #fff0f3 50%, #fce4ec 100%);
+            color: #4a2e35;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating cute background elements */
+        .sparkle {
+            position: absolute;
+            animation: floatSparkle 4s ease-in-out infinite alternate;
+            opacity: 0.6;
+        }
+
+        @keyframes floatSparkle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-15px) rotate(15deg); }
+        }
+
+        /* Hello Kitty Glassmorphism card */
+        .kitty-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 3px solid #ffb7c5;
+            box-shadow: 0 20px 40px rgba(255, 150, 170, 0.25);
+        }
+
+        /* Profile Ring Glow */
+        .profile-ring {
+            background: linear-gradient(45deg, #ff3366, #ffb7c5, #e8c5ff, #ff3366);
+            background-size: 300% 300%;
+            animation: gradientBorder 4s ease infinite;
+        }
+
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Social Button Hover */
+        .social-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .social-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.2);
+        }
+
+        /* Popup overlay */
+        #welcome-popup {
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4 relative">
+
+    <!-- Interactive Welcome Modal / Popup -->
+    <div id="welcome-popup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+        <div class="kitty-card rounded-[30px] p-6 max-w-xs w-full text-center relative shadow-2xl animate-bounce-short">
+            <div class="text-4xl mb-2">🧸✨</div>
+            <h3 class="font-pacifico text-xl text-kittyRed mb-2">Coucou ! 🌸</h3>
+            <p class="text-xs text-gray-600 mb-5 leading-relaxed">
+                Bienvenue dans le monde magique d'Israa. Clique ci-dessous pour entrer dans son univers ! 🎀
+            </p>
+            <button onclick="closePopup()" class="w-full py-3 bg-gradient-to-r from-pink-400 to-rose-400 text-white font-bold rounded-xl shadow-md hover:opacity-95 transition active:scale-95 text-sm">
+                Entrer 💖
+            </button>
+        </div>
+    </div>
+
+    <!-- Decorative cute background items -->
+    <div class="sparkle text-3xl top-6 left-6 text-pink-400">🎀</div>
+    <div class="sparkle text-3xl top-12 right-10 text-red-400" style="animation-delay: -1s;">💖</div>
+    <div class="sparkle text-3xl bottom-10 left-10 text-pink-300" style="animation-delay: -2s;">🌸</div>
+    <div class="sparkle text-3xl bottom-8 right-8 text-red-300" style="animation-delay: -1.5s;">🧸</div>
+
+    <!-- Main Wrapper -->
+    <div class="relative z-10 w-full max-w-sm mx-auto my-4">
+        
+        <!-- Profile Card -->
+        <div class="kitty-card rounded-[35px] p-5 md:p-7 text-center flex flex-col items-center relative overflow-hidden">
+            
+            <!-- Cute Bow Header Accent -->
+            <div class="text-2xl mb-1 text-kittyRed animate-pulse">
+                🎀
+            </div>
+
+            <!-- Profile Image Container -->
+            <div class="relative my-3">
+                <!-- Glowing Animated Ring -->
+                <div class="absolute -inset-2 rounded-full profile-ring opacity-80 blur-[2px]"></div>
+                
+                <!-- Image Wrapper -->
+                <div class="relative w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white bg-pink-100 shadow-xl flex items-center justify-center">
+                    <!-- 
+                      تعليمات الصورة: قم بتسمية صورتك باسم 'profile-photo.jpg' وضعها في نفس مجلد ملف الـ HTML 
+                    -->
+                    <img src="profile-photo.jpg" 
+                         alt="israa_es_hermosa" 
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x400/ffb7c5/ffffff?text=Israa';"
+                         class="w-full h-full object-cover transform hover:scale-105 transition duration-500">
+                </div>
+            </div>
+
+            <!-- Profile Username -->
+            <h1 class="font-pacifico text-2xl font-bold tracking-wide text-kittyRed mb-1">
+                israa_es_hermosa
+            </h1>
+            <p class="text-gray-500 text-[11px] tracking-widest uppercase font-semibold mb-4">
+                ✨ Douceur & Élégance ✨
+            </p>
+
+            <!-- Bio Section (مكان البايو بالفرنسية) -->
+            <div class="w-full bg-kittySoft rounded-2xl p-3.5 mb-5 border border-pink-200 text-gray-700 text-xs font-medium shadow-inner relative">
+                <span class="absolute -top-2.5 right-4 bg-kittyPink text-white text-[9px] px-2 py-0.5 rounded-full font-bold">Bio</span>
+                <!-- اكتب البايو الخاص بها هنا باللغة الفرنسية -->
+                <p id="userBio" class="italic leading-relaxed">
+                    "Écris ta bio ici en français... Exprime ta douceur, tes passions et ton style unique 🌸✨"
+                </p>
+            </div>
+
+            <!-- Social Links Section (روابط السوشيال ميديا) -->
+            <div class="w-full flex flex-col gap-3">
+
+                <!-- Instagram -->
+                <a href="ضع_رابط_انستغرام_هنا" target="_blank" rel="noopener noreferrer" 
+                   class="social-btn group flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-400 text-white shadow-md">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center text-white text-sm">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <span class="font-bold tracking-wide text-xs">Instagram</span>
+                    </div>
+                    <span class="text-[11px] text-pink-100 group-hover:translate-x-1 transition flex items-center gap-1">Visiter <i class="fa-solid fa-heart text-[9px]"></i></span>
+                </a>
+
+                <!-- TikTok -->
+                <a href="ضع_رابط_تيكتوك_هنا" target="_blank" rel="noopener noreferrer" 
+                   class="social-btn group flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-gray-900 via-zinc-900 to-black text-white shadow-md border border-zinc-800">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-pink-400 text-sm">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <span class="font-bold tracking-wide text-xs">TikTok</span>
+                    </div>
+                    <span class="text-[11px] text-gray-300 group-hover:translate-x-1 transition flex items-center gap-1">Découvrir <i class="fa-solid fa-heart text-[9px] text-pink-400"></i></span>
+                </a>
+
+                <!-- Snapchat -->
+                <a href="ضع_رابط_سنابشات_هنا" target="_blank" rel="noopener noreferrer" 
+                   class="social-btn group flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 shadow-md">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-black/10 flex items-center justify-center text-black text-sm">
+                            <i class="fa-brands fa-snapchat"></i>
+                        </div>
+                        <span class="font-bold tracking-wide text-xs">Snapchat</span>
+                    </div>
+                    <span class="text-[11px] text-gray-800 group-hover:translate-x-1 transition flex items-center gap-1">Ajouter <i class="fa-solid fa-heart text-[9px]"></i></span>
+                </a>
+
+                <!-- Facebook -->
+                <a href="ضع_رابط_فيسبوك_هنا" target="_blank" rel="noopener noreferrer" 
+                   class="social-btn group flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center text-white text-sm">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <span class="font-bold tracking-wide text-xs">Facebook</span>
+                    </div>
+                    <span class="text-[11px] text-blue-100 group-hover:translate-x-1 transition flex items-center gap-1">Rejoindre <i class="fa-solid fa-heart text-[9px]"></i></span>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="ضع_رابط_واتساب_هنا" target="_blank" rel="noopener noreferrer" 
+                   class="social-btn group flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-400 text-white shadow-md">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center text-white text-sm">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <span class="font-bold tracking-wide text-xs">WhatsApp</span>
+                    </div>
+                    <span class="text-[11px] text-emerald-100 group-hover:translate-x-1 transition flex items-center gap-1">Discuter <i class="fa-solid fa-heart text-[9px]"></i></span>
+                </a>
+
+            </div>
+
+            <!-- Footer Badge -->
+            <div class="mt-5 text-[11px] text-pink-400 font-semibold flex items-center gap-1">
+                <span>Créé avec amour pour</span> <span class="text-kittyRed font-bold">israa_es_hermosa</span> 🐾
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Interactive Welcome Popup -->
+    <script>
+        function closePopup() {
+            const popup = document.getElementById('welcome-popup');
+            popup.style.opacity = '0';
+            popup.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 400);
+        }
+    </script>
+</body>
+</html>
